@@ -74,3 +74,4 @@ using namespace webots;
   delete robot;
   return 0;
 }
+}

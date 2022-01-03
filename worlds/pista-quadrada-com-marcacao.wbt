@@ -1,10 +1,10 @@
-#VRML_SIM R2021b utf8
+#VRML_SIM R2022a utf8
 WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.03070689615618789 -0.9605395526646956 -0.2764432207437177 3.3541789724973348
-  position 0.26199316680747015 1.0372479836982211 -2.032011581314695
+  orientation -0.4414218091552843 -0.4558350829664569 -0.7728914306285452 1.8361852443017166
+  position -0.13798023340330426 0.2989423471969841 -1.2967156548478007
 }
 TexturedBackground {
 }
@@ -12,6 +12,7 @@ TexturedBackgroundLight {
 }
 RectangleArena {
   translation 0 -0.06 0.01
+  rotation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0943951023931953
   name "arena retangular"
   floorSize 2 2
   floorAppearance PBRAppearance {
@@ -35,22 +36,20 @@ RectangleArena {
   }
 }
 E-puck {
-  hidden position_0_0 1377.449880604675
-  hidden position_0_1 1468.50847458997
-  hidden rotation_1 1 0 0 4.850886974834079
-  hidden rotation_2 1 0 0 1.7568872900531436
-  translation 0.04994083917500854 -0.060063945527561974 -0.725240779210621
-  rotation -0.0006581668054913899 0.999999569703493 0.0006537654661716326 1.5643036824352443
+  translation 0.0497461 -0.0600639 -0.695241
+  rotation -0.002757978561832795 0.7071056429462743 0.707102540843822 3.137926023255828
   controller "my_controller"
   groundSensorsSlot [
     DistanceSensor {
-      translation 0 0.02 0
-      name "sensor_left"
+      translation 0 -0.01 0
+      rotation 0 1 0 1.5708
+      name "ir0"
       type "infra-red"
     }
     DistanceSensor {
-      translation 0 -0.02 0
-      name "sensor_right"
+      translation 0 0.02 0
+      rotation 0 1 0 1.5708
+      name "ir1"
       type "infra-red"
     }
   ]
