@@ -1,5 +1,3 @@
-// <webots/DistanceSensor.hpp>, <webots/Motor.hpp>, etc.
-// and/or to add some other includes
 #include <webots/Robot.hpp>
 #include <webots/Motor.hpp>
 #include <webots/DistanceSensor.hpp>
@@ -14,12 +12,6 @@ using namespace webots;
 
   // get the time step of the current world.
   int timeStep = (int)robot->getBasicTimeStep();
-
-  // You should insert a getDevice-like function in order to get the
-  // instance of a device of the robot. Something like:
-  //  Motor *motor = robot->getMotor("motorname");
-  //  DistanceSensor *ds = robot->getDistanceSensor("dsname");
-  //  ds->enable(timeStep);
 
   Motor *left_motor = robot->getMotor("left wheel motor");
   Motor *right_motor = robot->getMotor("right wheel motor");
