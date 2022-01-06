@@ -51,6 +51,10 @@ using namespace webots;
     else if ((right_ir_val > left_ir_val) && line_right){
 	right_speed = MAX_SPEED * 0.25;
     }
+    else if (!(line_left && line_right)){
+            right_speed = MAX_SPEED * 0.25;
+            left_speed = 0;
+    }
 
     left_motor->setVelocity(left_speed);
     right_motor->setVelocity(right_speed);
