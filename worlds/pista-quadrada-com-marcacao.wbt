@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.4414218091552843 -0.4558350829664569 -0.7728914306285452 1.8361852443017166
-  position -0.13798023340330426 0.2989423471969841 -1.2967156548478007
+  orientation 0.4484594773870331 0.42908014091605046 0.7840754618104123 4.484773583428112
+  position -0.2837816082018198 0.6854531551119569 -1.912492952728111
 }
 TexturedBackground {
 }
@@ -41,13 +41,12 @@ E-puck {
   controller "my_controller"
   groundSensorsSlot [
     DistanceSensor {
-      translation 0 -0.01 0
       rotation 0 1 0 1.5708
       name "ir0"
       type "infra-red"
     }
     DistanceSensor {
-      translation 0 0.02 0
+      translation 0 0.01 0
       rotation 0 1 0 1.5708
       name "ir1"
       type "infra-red"

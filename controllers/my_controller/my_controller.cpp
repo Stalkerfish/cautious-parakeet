@@ -5,12 +5,10 @@
 #define MAX_SPEED 6.28
 #define TIME_STEP 64
 
-// All the webots classes are defined in the "webots" namespace
 using namespace webots;
  int main(int argc, char **argv) {
   Robot *robot = new Robot();
 
-  // get the time step of the current world.
   int timeStep = (int)robot->getBasicTimeStep();
 
   Motor *left_motor = robot->getMotor("left wheel motor");
@@ -25,30 +23,28 @@ using namespace webots;
   double left_speed = MAX_SPEED;
   double right_speed = MAX_SPEED;
 
-  DistanceSensor *left_ir = robot->getDistanceSensor("ir0");
-  DistanceSensor *right_ir = robot->getDistanceSensor("ir1");
+  DistanceSensor *right_ir = robot->getDistanceSensor("ir0");
+  DistanceSensor *left_ir = robot->getDistanceSensor("ir1");
 
   left_ir->enable(TIME_STEP);
   right_ir->enable(TIME_STEP);
 
-  // Main loop:
-  // - perform simulation steps until Webots is stopping the controller
+  //Main loop:
   while (robot->step(timeStep) != -1) {
   while (robot->step(TIME_STEP) != -1) {
-    // Read the sensors:
-    // Enter here functions to read sensor data, like:
-    //  double val = ds->getValue();
+    
     double left_ir_val = left_ir->getValue();
     double right_ir_val = right_ir->getValue();
-
-    // Process sensor data here.
+    
+    std::cout << "Valor do sensor esquerdo: " << left_ir_val << std::endl;
+    std::cout << "Valor do sensor direito: " << right_ir_val << std::endl;
+    
     left_speed = MAX_SPEED;
     right_speed = MAX_SPEED;
 
     bool line_left = (4 < left_ir_val) && (left_ir_val < 15);
     bool line_right = (4 < right_ir_val) && (right_ir_val < 15);
 
-    // If line on left, drive left
     if ((left_ir_val > right_ir_val) && line_left){
 	left_speed = MAX_SPEED * 0.25;
     }
@@ -56,13 +52,10 @@ using namespace webots;
 	right_speed = MAX_SPEED * 0.25;
     }
 
-    // Enter here functions to send actuator commands, like:
-    //  motor->setPosition(10.0);
     left_motor->setVelocity(left_speed);
     right_motor->setVelocity(right_speed);
-  };
+  }
 
-  // Enter here exit cleanup code.
   delete robot;
   return 0;
 }
